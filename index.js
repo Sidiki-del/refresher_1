@@ -1,15 +1,9 @@
 const env = require("dotenv").config();
 const express = require("express");
-const request = require("request");
 const path = require("path");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const nodemailer = require("nodemailer");
-const {
-    response
-} = require("express");
- 
-
 
 const app = express();
 
@@ -21,6 +15,18 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
+
+app.get("/", function (req, res) {
+    res.render("index");
+});
+
+app.get("/about", function (req, res) {
+    res.render("about");
+});
+
+app.get("/pricing", function (req, res) {
+    res.render("pricing");
+});
 
 
 
